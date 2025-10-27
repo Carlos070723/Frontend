@@ -81,7 +81,7 @@ import { LayoutService } from '../service/layout.service';
                     <div *ngIf="showProfile" class="absolute right-0 mt-2 p-3 bg-white dark:bg-gray-800 border rounded shadow-lg z-50">
                         <button class="float-right" (click)="showProfile = false">✖</button>
                         <!-- Cerrar ventana -->
-                        <p>{{ currentUser?.nombre_usuario }}</p>
+                        <p><i class="pi pi-user"></i> {{ currentUser?.nombre_usuario }}</p>
                         <button class="p-button p-button-danger mt-2" (click)="logout()">Cerrar sesión</button>
                     </div>
                 </div>
