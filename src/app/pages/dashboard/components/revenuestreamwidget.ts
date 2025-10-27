@@ -8,15 +8,13 @@ import { LayoutService } from '../../../layout/service/layout.service';
     selector: 'app-revenue-stream-widget',
     imports: [ChartModule],
     template: `<div class="card mb-8!">
-        <div class="font-semibold text-xl mb-4">Revenue Stream</div>
+        <div class="font-semibold text-xl mb-4">Flujo de Ingresos</div>
         <p-chart type="bar" [data]="chartData" [options]="chartOptions" class="h-100" />
     </div>`
 })
 export class RevenueStreamWidget {
     chartData: any;
-
     chartOptions: any;
-
     subscription!: Subscription;
 
     constructor(public layoutService: LayoutService) {
@@ -36,27 +34,27 @@ export class RevenueStreamWidget {
         const textMutedColor = documentStyle.getPropertyValue('--text-color-secondary');
 
         this.chartData = {
-            labels: ['Q1', 'Q2', 'Q3', 'Q4'],
+            labels: ['Enero', 'Abril', 'Julio', 'Octubre'],
             datasets: [
                 {
                     type: 'bar',
-                    label: 'Subscriptions',
+                    label: 'Ventas de Autos',
                     backgroundColor: documentStyle.getPropertyValue('--p-primary-400'),
-                    data: [4000, 10000, 15000, 4000],
+                    data: [120000, 150000, 130000, 170000],
                     barThickness: 32
                 },
                 {
                     type: 'bar',
-                    label: 'Advertising',
+                    label: 'Servicios y Mantenimiento',
                     backgroundColor: documentStyle.getPropertyValue('--p-primary-300'),
-                    data: [2100, 8400, 2400, 7500],
+                    data: [40000, 50000, 45000, 60000],
                     barThickness: 32
                 },
                 {
                     type: 'bar',
-                    label: 'Affiliate',
+                    label: 'Accesorios',
                     backgroundColor: documentStyle.getPropertyValue('--p-primary-200'),
-                    data: [4100, 5200, 3400, 7400],
+                    data: [15000, 22000, 18000, 25000],
                     borderRadius: {
                         topLeft: 8,
                         topRight: 8,
@@ -111,3 +109,4 @@ export class RevenueStreamWidget {
         }
     }
 }
+

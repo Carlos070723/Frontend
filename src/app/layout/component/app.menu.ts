@@ -8,22 +8,32 @@ import { AppMenuitem } from './app.menuitem';
     selector: 'app-menu',
     standalone: true,
     imports: [CommonModule, AppMenuitem, RouterModule],
-    template: `<ul class="layout-menu">
+    template: `
+    <ul class="layout-menu">
         <ng-container *ngFor="let item of model; let i = index">
-            <li app-menuitem *ngIf="!item.separator" [item]="item" [index]="i" [root]="true"></li>
+            <!-- Usamos notación de índice para showIfLoggedIn -->
+            <li app-menuitem 
+                *ngIf="!item.separator && (item['showIfLoggedIn'] === undefined || (item['showIfLoggedIn'] && isLoggedIn))" 
+                [item]="item" 
+                [index]="i" 
+                [root]="true">
+            </li>
+            
             <li *ngIf="item.separator" class="menu-separator"></li>
         </ng-container>
-    </ul> `
+    </ul>
+    `
 })
 export class AppMenu {
     model: MenuItem[] = [];
+    isLoggedIn: boolean = false;
 
     ngOnInit() {
+        // Comprobamos si hay token para definir login
+        this.isLoggedIn = !!localStorage.getItem('token');
+
         this.model = [
             {
-                //label: 'Pages',
-                //icon: 'pi pi-fw pi-briefcase',
-                //routerLink: ['/pages'],
                 items: [
                     {
                         label: 'Auth',
@@ -41,6 +51,7 @@ export class AppMenu {
             {
                 label: 'Gestión',
                 icon: 'pi pi-fw pi-briefcase',
+                showIfLoggedIn: true, // propiedad personalizada
                 items: [
                     { label: 'Cargos', icon: 'pi pi-fw pi-id-card', routerLink: ['/cargo'] },
                     { label: 'Empleados', icon: 'pi pi-fw pi-users', routerLink: ['/empleado'] },
@@ -51,3 +62,4 @@ export class AppMenu {
         ];
     }
 }
+
