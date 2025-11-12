@@ -46,7 +46,7 @@ import { MessageService } from 'primeng/api';
       <p-dialog header="Cargo" [(visible)]="dialogVisible" [modal]="true" [closable]="true" [resizable]="false">
         <div class="p-fluid">
           <div class="field">
-            <label for="cargo">Nombre</label>
+            <label for="cargo" style="margin-right:10px;">Nombre</label>
             <input id="cargo" pInputText [(ngModel)]="model.cargo" />
           </div>
         </div>

@@ -34,6 +34,10 @@ export const appRoutes: Routes = [
         path: 'venta',
         loadComponent: () => import('./app/pages/venta/venta.component').then(m => m.VentaComponent)
       },
+      {
+        path: 'usuario',
+        loadComponent: () => import('./app/pages/usuario/usuario.component').then(m => m.UsuarioComponent)
+      },
     ]
   },
   { path: 'landing', component: Landing },

@@ -56,7 +56,8 @@ export class AppMenu {
                     { label: 'Cargos', icon: 'pi pi-fw pi-id-card', routerLink: ['/cargo'] },
                     { label: 'Empleados', icon: 'pi pi-fw pi-users', routerLink: ['/empleado'] },
                     { label: 'Proveedores', icon: 'pi pi-fw pi-users', routerLink: ['/proveedores'] },
-                    { label: 'Ventas', icon: 'pi pi-fw pi-cart-plus', routerLink: ['/venta'] }
+                    { label: 'Ventas', icon: 'pi pi-fw pi-cart-plus', routerLink: ['/venta'] },
+                    {label: 'Usuario', icon: 'pi pi-fw pi-user',routerLink:['/usuario']}
                 ]
             }
         ];
